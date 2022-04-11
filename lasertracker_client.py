@@ -15,7 +15,7 @@ class Measurement:
         self.pitch = None
         self.yaw = None
 
-class Server:
+class LaserTrackerClient:
     def __init__(self, ip="10.10.105.55", port=11000):      
         self.HOST = "10.10.105.55"  # The server's hostname or IP address
         self.PORT = 11000  # The port used by the server
@@ -33,12 +33,12 @@ class Server:
         measurement_json = json.loads(string_data)
 
         self.measurement.x = measurement_json['X']
-        self.measurement.y = measurement_json['X']
-        self.measurement.z = measurement_json['X']
+        self.measurement.y = measurement_json['Y']
+        self.measurement.z = measurement_json['Z']
         self.measurement.qw = measurement_json['qw']
         self.measurement.qx = measurement_json['qx']
-        self.measurement.xy = measurement_json['qy']
-        self.measurement.xz = measurement_json['qz']
+        self.measurement.qy = measurement_json['qy']
+        self.measurement.qz = measurement_json['qz']
         self.measurement.roll = measurement_json['roll']
         self.measurement.pitch = measurement_json['pitch']
         self.measurement.yaw = measurement_json['yaw']
